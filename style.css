@@ -140,6 +140,7 @@ body {
 	border-radius: 30px;
 	gap: 25px;
 	width: 25%;
+	height: 90%;
 	z-index: 50;
 	backdrop-filter: blur(10px);
 }
