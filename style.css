@@ -121,10 +121,9 @@ body {
 
 .section2 .parent-contain #effect {
 	width: 500px;
-	height: 0;
+	height: 500px;
 	border-radius: 50%;
-	box-shadow: 0 0 70px 50px #ff2929 inset,
-	0 0 50px 120px #ff5454 inset;
+	box-shadow: 0 0 90px 30px black inset,0 0 10px 80px white inset, 0 0 5px 150px #b82c2c inset;
 	position: absolute;
 }
 
@@ -174,4 +173,10 @@ body {
 	font-size: 20px;
 	font-family: Poppins;
 	color: white;
+}
+
+.section3 {
+	height: 100vh;
+	width: 100%;
+	background-color: black;
 }

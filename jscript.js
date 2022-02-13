@@ -1,6 +1,5 @@
 var logo = document.getElementById("eye");
 var eye = document.getElementById("effect");
-var right;
 var left = 0;
 var parent = 0;
 var child = 0;
@@ -8,40 +7,43 @@ var cofc = 0;
 /*var index = 0;*/
 window.addEventListener('scroll', function(){
 	var portion = window.scrollY;
-	eye.style.height = 0.53 * portion + "px";
+	start = -1000 + 1.052 * portion
+	eye.style.boxShadow = "0 0 90px 30px black inset," + start + "px 0 10px 80px white inset, " + start + "px 0 5px 150px #b82c2c inset";
 });
-if (window.scrollY >= 900)
-{
-	parent = setInterval(function()
-	{
-		left -= 1;
-		eye.style.boxShadow = left + "px 0 20px 80px white inset, " + left + "px 0 5px 150px #b82c2c inset";
-		if (left < -40)
+
+	setInterval(function(){
+
+		parent = setInterval(function()
 		{
-			setTimeout(function()
+			left -= 1;
+			eye.style.boxShadow = "0 0 90px 30px black inset," + left + "px 0 10px 80px white inset, " + left + "px 0 5px 150px #b82c2c inset";
+			if (left < -40)
 			{
-				child = setInterval(function()
+				setTimeout(function()
 				{
-					left += 2;
-					eye.style.boxShadow = left + "px 0 20px 80px white inset, " + left + "px 0 5px 150px #b82c2c inset";
-					if (left > 40)
+					child = setInterval(function()
 					{
-						setTimeout(function(){
-							cofc = setInterval(function(){
-								left -= 1;
-								eye.style.boxShadow = left + "px 0 20px 80px white inset, " + left + "px 0 5px 150px #b82c2c inset";
-								if(left == 0)
-									clearInterval(cofc);
-							}, 10)
-						}, 1000);
-						clearInterval(child);
-					}
-				}, 10);
-			}, 1000);
-			clearInterval(parent);
-		}
-	}, 10);
-}
+						left += 2;
+						eye.style.boxShadow = "0 0 90px 30px black inset," + left + "px 0 10px 80px white inset, " + left + "px 0 5px 150px #b82c2c inset";
+						if (left > 40)
+						{
+							setTimeout(function(){
+								cofc = setInterval(function(){
+									left -= 1;
+									eye.style.boxShadow = "0 0 90px 30px black inset,"+ left + "px 0 10px 80px white inset, " + left + "px 0 5px 150px #b82c2c inset";
+									if(left == 0)
+										clearInterval(cofc);
+								}, 10)
+							}, 1000);
+							clearInterval(child);
+						}
+					}, 10);
+				}, 1000);
+				clearInterval(parent);
+			}
+		}, 10);
+	}, 8000)
+
 
 /*if (left == -51)
 {
